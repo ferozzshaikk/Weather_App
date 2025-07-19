@@ -8,14 +8,21 @@
   </head>
   <body>
     <div class="container">
-      <h1>Weather App</h1>
+      <h1>Weather Now</h1>
       <div class="input-container">
         <input
           type="text"
-          placeholder="Enter City Name Here!"
+          placeholder="Search City..."
           id="city-input"
+          class="search-input"
         />
         <button id="get-weather-btn">Get Weather</button>
+      </div>
+
+      <div id="loading" class="hidden">
+        <div class="spinner">
+          <p>Loading weather-info...</p>
+        </div>
       </div>
 
       <div id="weather-info" class="hidden">
@@ -23,6 +30,30 @@
         <p id="temperature"></p>
         <p id="feels-like"></p>
         <p id="description"></p>
+      </div>
+
+      <div id="details" class="hidden">
+        <div class="detail-card">
+          <div class="detail-value">
+            Humidity
+            <p id="humidity"></p>
+          </div>
+          <div class="detail-value">
+            Wind
+            <p id="wind"></p>
+          </div>
+          <div class="detail-value">
+            Pressure
+            <p id="pressure"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="forecast-details" class="hidden">
+        <h3 style="margin-top: 30px">7-Day Forecast</h3>
+        <div class="forecast">
+          <!-- items to be added -->
+        </div>
       </div>
 
       <p id="error-msg" class="hidden">City not found! check again</p>

@@ -1,24 +1,32 @@
+:root {
+  --primary: #4361ee;
+  --secondary: #3a0ca3;
+  --text: #2b2d42;
+  --bgc: #f8f9fa;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell;
-  background-color: #121212;
-  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #b8c6bd 0%, #3c6aaf 100%);
+  color: var(--text);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container {
-  background-color: #1e1e1e;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 10px;
   width: 400px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.695);
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 h1 {
   margin-bottom: 20px;
@@ -26,37 +34,69 @@ h1 {
 .input-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 input[type="text"] {
-  width: 70%;
-  padding: 10px;
-  background-color: #333333;
+  flex: 1;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.8);
   border: none;
-  border-radius: 5px;
-  color: white;
+  border-radius: 50px 0 0 50px;
+  color: rgb(0, 0, 0);
   outline: none;
+  font-size: 16px;
 }
 button {
-  width: 25%;
-  padding: 10px;
-  background-color: rgb(55, 100, 207);
+  padding: 12px 20px;
+  background: var(--primary);
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: 0 50px 50px 0;
   color: white;
   cursor: pointer;
-  transition: background-color 300ms;
+  transition: all 0.3s ease;
 }
 button:hover {
-  background-color: #003eb0;
+  background: var(--secondary);
+}
+#temperature {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #weather-info {
-  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  backdrop-filter: blur(5px);
+  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 #weather-info h2 {
   margin-bottom: 10px;
-  color: greenyellow;
+  color: var(--secondary);
+}
+#details {
+  margin: 25px;
+  padding: 10px;
+}
+.detail-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 10px;
+}
+.detail-value {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  backdrop-filter: blur(5px);
+  font-size: 1.2rem;
+  margin-top: 5px;
 }
 .hidden {
   display: none;
@@ -64,4 +104,12 @@ button:hover {
 #error-msg {
   color: rgb(205, 72, 0);
   margin-top: 20px;
+}
+
+.forecast {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }

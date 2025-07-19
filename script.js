@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const tempDisplay = document.getElementById("temperature");
   const feelsLike = document.getElementById("feels-like");
   const descripDisplay = document.getElementById("description");
+  const details = document.getElementById("details");
+  const humid = document.getElementById("humidity");
+  const windSpeed = document.getElementById("wind");
+  const pressure = document.getElementById("pressure");
   const errorMsg = document.getElementById("error-msg");
   const API_KEY = "36f7d87787eea79888cb615402fb2ab5";
 
@@ -47,19 +51,24 @@ document.addEventListener("DOMContentLoaded", () => {
   displayWeatherData = (data) => {
     //Display
     console.log(data);
-    const { name, main, weather } = data;
+    const { name, main, weather, wind } = data;
     cityNameDisplay.textContent = name;
     tempDisplay.textContent = `Temperature: ${main.temp}°C`;
     feelsLike.textContent = `feels like: ${main.feels_like}°C`;
     descripDisplay.textContent = `Weather: ${weather[0].description}`;
+    humid.innerHTML = `<span style="font-weight: bold">${main.humidity}%</span>`;
+    windSpeed.innerHTML = `<span style="font-weight: bold">${wind.speed}km/h</span>`;
+    pressure.innerHTML = `<span style="font-weight: bold">${main.pressure}mb</span>`;
 
     // unlock the display
     weatherInfo.classList.remove("hidden");
+    details.classList.remove("hidden");
     errorMsg.classList.add("hidden");
   };
 
   showError = () => {
     weatherInfo.classList.add("hidden");
+    details.classList.add("hidden");
     errorMsg.classList.remove("hidden");
   };
 });
